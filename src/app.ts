@@ -69,18 +69,20 @@ function renderTweet(
     form.id = 'form-' + tweet.id;
     tweetContainer.appendChild(form);
 
+    const countContainer = document.createElement("div");
+    countContainer.classList.add("countContainer");
+
     const textarea = document.createElement('textarea');
     textarea.id ='textarea' + tweet.id;
     textarea.value = tweet.message;
     textarea.maxLength = 250;
+    countContainer.textContent = textarea.value.length.toString() + "/250";
 
     const buttonAddMore = document.createElement("button");
     buttonAddMore.classList.add("button", "buttonNew");
     buttonAddMore.value = "Add another tweet";
     buttonAddMore.append(document.createTextNode("Add another tweet"));
 
-    const countContainer = document.createElement("div");
-    countContainer.classList.add("countContainer");
 
     // Listener para añadir otro tweet cuando se hace clic en el botón
     buttonAddMore.addEventListener('click', e =>{
